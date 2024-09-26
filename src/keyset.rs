@@ -311,3 +311,16 @@ fn decode_segment<T: DeserializeOwned>(segment: &str) -> Result<T, Error> {
 
     Ok(decoded)
 }
+
+impl Clone for KeyStore {
+    fn clone(&self) -> Self {
+        KeyStore {
+            key_url: self.key_url.clone(),
+            keys: self.keys.clone(),
+            refresh_interval: self.refresh_interval.clone(),
+            load_time: self.load_time.clone(),
+            expire_time: self.expire_time.clone(),
+            refresh_time: self.refresh_time.clone(),
+        }
+    }
+}
